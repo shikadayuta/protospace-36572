@@ -50,7 +50,7 @@ class PrototypesController < ApplicationController
   end
 
   def move_to_index
-    unless user_signed_in? == current_user.name
+    unless  Prototype.find(params[:id]).user.id.to_i == current_user.id
       redirect_to root_path
     end
   end
